@@ -20,7 +20,7 @@ def QRcodeGenerator():
     im.show()
     #cc = cv2.imread('test.png')
     #cv2.imshow('QR Code', cc)
-    cv2.waitKey(0)
+    cv2.waitKey(5)
     os.remove('test.png')
 
 def QRcodeChecker():
@@ -54,7 +54,11 @@ def QRcodeChecker():
             #cv2.putText(img,myData,(pts2[0],pts2[1]),cv2.FONT_HERSHEY_SIMPLEX,0.9,(255,0,255),2)
             cv2.putText(img, myOp, (pts2[0], pts2[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.9, myColor, 2)
         cv2.imshow('Result',img)
-        cv2.waitKey(1)
+        cp = cv2.waitKey(1)
+        if cp & 0xFF == ord("q"):
+            break
+    cv2.destroyAllWindows()
+
 
 if __name__ == '__main__':
     while True:
